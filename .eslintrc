@@ -31,6 +31,7 @@
     "no-unsafe-finally": 0,
     "no-useless-computed-key": 0,
 
+    "react/prop-types": 0,
     "react/jsx-uses-react": 1,
     "react/jsx-no-undef": 2,
     "react/jsx-sort-props": 0,

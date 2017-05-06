@@ -1,4 +1,5 @@
-import { compose, withProps, withHandlers, lifecycle } from 'recompose'
+import { compose, defaultProps, withProps, withHandlers, lifecycle } from 'recompose'
+import diff from 'shallow-diff'
 
 /**
  * Helper method to resolve the target from either
@@ -29,6 +30,20 @@ function componentWillUnmount () {
   )
 }
 
+function componentWillReceiveProps ({ _eventHandlers }) {
+  const { added, updated, deleted } = diff(this.props._eventHandlers, _eventHandlers)
+
+  // Detach deleted and updated event listeners.
+  deleted.concat(updated).forEach(
+    event => this.props.detach(this.props._eventHandlers[event], event)
+  )
+
+  // Attach added and updated event listeners.
+  added.concat(updated).forEach(
+    event => this.props.attach(_eventHandlers[event], event)
+  )
+}
+
 /**
  * withEventListeners HoC factory.
  *
@@ -46,9 +61,11 @@ function componentWillUnmount () {
 export const withEvents = (_eventTarget, _eventHandlers) => compose(
   withHandlers({ _getEventTarget: eventTargetGetter(_eventTarget) }),
   withProps(resolveEventHandlers(_eventHandlers)),
+  defaultProps({ _eventHandlers: {} }),
   withHandlers({ attach, detach }),
   lifecycle({
     componentDidMount,
+    componentWillReceiveProps,
     componentWillUnmount,
   })
 )

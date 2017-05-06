@@ -12,7 +12,7 @@
   "scripts": {
     "build": "mkdir -p lib && babel ./src --out-dir ./lib",
     "lint": "eslint src",
-    "prepublish": "rm -rf lib && npm run test && npm run build",
+    "prepublish": "rm -rf lib && npm run lint && npm run test && npm run build",
     "test": "jest --verbose --no-cache"
   },
   "authors": [

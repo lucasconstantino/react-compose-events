@@ -1,0 +1,37 @@
+{
+  "name": "react-compose-events",
+  "version": "0.1.0",
+  "description": "A Higher-Order Component factory to attach outside event listeners",
+  "main": "lib/index.js",
+  "files": [
+    "*.md",
+    "LICENSE",
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "mkdir -p lib && babel ./src --out-dir ./lib",
+    "lint": "eslint src",
+    "prepublish": "rm -rf lib && npm run test && npm run build",
+    "test": "jest --verbose --no-cache"
+  },
+  "authors": [
+    "Lucas Constantino Silva"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasconstantino/react-compose-events.git"
+  },
+  "keywords": [
+    "react",
+    "composition",
+    "recompose",
+    "events",
+    "listener"
+  ],
+  "bugs": {
+    "url": "https://github.com/lucasconstantino/react-compose-events/issues"
+  },
+  "homepage": "https://github.com/lucasconstantino/react-compose-events#readme"
+}

@@ -43,7 +43,7 @@ function componentWillUnmount () {
  *
  * @return HoC.
  */
-export default (_eventTarget, _eventHandlers) => compose(
+export const withEvents = (_eventTarget, _eventHandlers) => compose(
   withHandlers({ _getEventTarget: eventTargetGetter(_eventTarget) }),
   withProps(resolveEventHandlers(_eventHandlers)),
   withHandlers({ attach, detach }),

@@ -55,9 +55,15 @@ export default compose(
 
 Notice here that the second argument of `withEvents` can be either an object mapping event names to handlers, or a function, which will be called with the piping props and should return the map of events. This way you can have event handlers based on passed props - such as handlers created via `withHandlers`, as the example shows.
 
+## Warnings
+
 ### Server-side rendering
 
 On SSR you might run into trouble when trying to access global objects such as `window`, which will probably not be availble. For these cases, the first argument of `withEvents` can also be passed a function, which will be called only when attaching the event listeners, during `componentDidMount`.
+
+### Function implementations as target
+
+If the provided target both is an implementation of the `EventTarget` interface and has a `typeof` of `function`, it will be executed when resolving the target, which might not be intended. To avoid that, you might want to provided the target as a simple function returning the real target.
 
 ## License
 

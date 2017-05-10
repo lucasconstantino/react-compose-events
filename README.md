@@ -35,7 +35,7 @@ export default withEvents(window, {
 Usually you'll need events to fire in a global object, but have them affect the props used on the components. Here goes some example using recompose tools.
 
 ```js
-import { withState, withHandlers } from 'recompose'
+import { compose, withState, withHandlers } from 'recompose'
 import { withEvents } from 'react-compose-events'
 
 const MyScrollListeningComponent = ({ scrollTop }) => (
@@ -50,7 +50,7 @@ export default compose(
     scroll: ({ setScrollTop }) => e => setScrollTop(window.scrollY)
   }),
   withEvents(window, ({ scroll }) => ({ scroll })),
-)
+)(MyScrollListeningComponent)
 ```
 
 Notice here that the second argument of `withEvents` can be either an object mapping event names to handlers, or a function, which will be called with the piping props and should return the map of events. This way you can have event handlers based on passed props - such as handlers created via `withHandlers`, as the example shows.

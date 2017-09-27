@@ -60,6 +60,15 @@ Notice here that the second argument of `withEvents` can be either an object map
 Sometimes you would like to listen to an EventEmitter, you can currently can try use this example as a reference:
 
 ```js
+import { compose, withState, withHandlers } from 'recompose'
+import { withEvents } from 'react-compose-events'
+
+const MessageEventEmitterListeningComponent = ({ messageText }) => (
+  <p>
+    Last Message: { messageText }
+  </p>
+)
+
 export default compose(
   withState('messageText', 'setMessageText', 'No messages yet.'),
   withHandlers({
@@ -71,7 +80,7 @@ export default compose(
     },
     ({ message }) => ({ message }),
   ),
-)(MyMessageEventEmitterListeningComponent);
+)(MessageEventEmitterListeningComponent);
 ```
 
 ## Warnings

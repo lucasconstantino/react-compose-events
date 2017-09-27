@@ -55,6 +55,34 @@ export default compose(
 
 Notice here that the second argument of `withEvents` can be either an object mapping event names to handlers, or a function, which will be called with the piping props and should return the map of events. This way you can have event handlers based on passed props - such as handlers created via `withHandlers`, as the example shows.
 
+### With `EventEmitter.on` and recompose friends
+
+Sometimes you would like to listen to an EventEmitter, you can currently can try use this example as a reference:
+
+```js
+import { compose, withState, withHandlers } from 'recompose'
+import { withEvents } from 'react-compose-events'
+
+const MessageEventEmitterListeningComponent = ({ messageText }) => (
+  <p>
+    Last Message: { messageText }
+  </p>
+)
+
+export default compose(
+  withState('messageText', 'setMessageText', 'No messages yet.'),
+  withHandlers({
+    message: ({ setMessageText }) => (e, text) => setMessageText(text),
+  }),
+  withEvents(
+    {
+      addEventListener: (e, f) => YourEventEmitter.on(e, f),
+    },
+    ({ message }) => ({ message }),
+  ),
+)(MessageEventEmitterListeningComponent);
+```
+
 ## Warnings
 
 ### Server-side rendering

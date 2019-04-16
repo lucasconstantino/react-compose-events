@@ -1,4 +1,4 @@
-# React Compose Events [![Build Status](https://travis-ci.org/lucasconstantino/react-compose-events.svg?branch=master)](https://travis-ci.org/lucasconstantino/react-compose-events)
+# React Compose Events [![Build Status](https://travis-ci.org/lucasconstantino/react-compose-events.svg?branch=master)](https://travis-ci.org/lucasconstantino/react-compose-events) [![Greenkeeper badge](https://badges.greenkeeper.io/lucasconstantino/react-compose-events.svg)](https://greenkeeper.io/)
 
 > A Higher-Order Component factory to attach outside event listeners
 

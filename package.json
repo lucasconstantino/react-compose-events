@@ -21,7 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.10.1",
-    "babel-eslint": "^6.0.4",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
@@ -29,17 +29,17 @@
     "babel-preset-stage-0": "^6.3.13",
     "babel-runtime": "^6.9.2",
     "component-emitter": "^1.2.1",
-    "enzyme": "^2.8.2",
-    "eslint": "^3.0.1",
-    "eslint-config-standard": "^5.3.5",
-    "eslint-config-standard-react": "^2.5.1",
-    "eslint-plugin-promise": "^1.3.2",
-    "eslint-plugin-react": "^5.2.2",
-    "eslint-plugin-standard": "^2.0.0",
-    "jest": "^19.0.2",
-    "react": "^15.3.1",
+    "enzyme": "^3.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.7.1",
+    "react": "^16.8.6",
     "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^15.5.4"
+    "react-dom": "^16.8.6"
   },
   "peerDependencies": {
     "react": "^15.3.1"
@@ -60,7 +60,7 @@
   },
   "homepage": "https://github.com/lucasconstantino/react-compose-events#readme",
   "dependencies": {
-    "recompose": "^0.23.1",
+    "recompose": "^0.30.0",
     "shallow-diff": "^0.0.5"
   }
 }
